@@ -1,0 +1,182 @@
+{
+  "storyTitle": "The Lion and the Mouse: A Fable of Mercy and Gratitude",
+  "author": "Autonomous Narrative Synthesizer (VecEmbed + SSP)",
+  "targetAudience": "Children & Families",
+  "initialState": {
+    "lion_name": "Leo",
+    "mouse_name": "Milo",
+    "savannah_name": "Sunlit Serengeti",
+    "characters_introduced": false,
+    "mouse_wakes_lion": false,
+    "lion_captures_mouse": false,
+    "mouse_pleads_kindness": false,
+    "lion_spares_mouse": false,
+    "hunters_trap_lion": false,
+    "mouse_hears_roars": false,
+    "mouse_chews_ropes": false,
+    "lion_freed": false,
+    "moral_learned": false,
+    "story_completed": false,
+    "violence_occurred": false,
+    "kid_friendly": true
+  },
+  "goal": [
+    { "variable": "characters_introduced", "op": "==", "expectedValue": true },
+    { "variable": "lion_captures_mouse", "op": "==", "expectedValue": true },
+    { "variable": "lion_spares_mouse", "op": "==", "expectedValue": true },
+    { "variable": "hunters_trap_lion", "op": "==", "expectedValue": true },
+    { "variable": "mouse_chews_ropes", "op": "==", "expectedValue": true },
+    { "variable": "lion_freed", "op": "==", "expectedValue": true },
+    { "variable": "moral_learned", "op": "==", "expectedValue": true },
+    { "variable": "story_completed", "op": "==", "expectedValue": true }
+  ],
+  "hazards": [
+    { "variable": "violence_occurred", "op": "==", "expectedValue": true },
+    { "variable": "kid_friendly", "op": "==", "expectedValue": false }
+  ],
+  "capabilities": [
+    {
+      "id": "beat.1_introduce_lion_and_mouse",
+      "title": "The Golden King and the Tiny Scout",
+      "textTemplate": "In the sprawling golden grass of the {savannah_name}, lived two creatures of vastly different stature. {lion_name} the lion was the mighty sovereign of the plains, renowned for his majestic mane and deep, resonant roar. Underneath the acacia roots scurried {mouse_name} the mouse, tiny and inquisitive, whose whiskers twitched with cheerful curiosity at every fallen seed.",
+      "preconditions": [],
+      "effects": [
+        { "variable": "characters_introduced", "op": "SET", "value": true }
+      ],
+      "isKidFriendly": true,
+      "violenceLevel": 0.0
+    },
+    {
+      "id": "beat.2_mouse_startles_napping_lion",
+      "title": "A Misplaced Step",
+      "textTemplate": "One warm afternoon while {lion_name} was napping soundly in the acacia shade, {mouse_name} was searching for berries. Misjudging a leap over what he thought was a mossy log, {mouse_name} tumbled right onto {lion_name}'s great fuzzy nose! The mighty lion sneezed with a rumble that shook the grass and blinked open two enormous golden eyes.",
+      "preconditions": [
+        { "variable": "characters_introduced", "op": "==", "expectedValue": true }
+      ],
+      "effects": [
+        { "variable": "mouse_wakes_lion", "op": "SET", "value": true }
+      ],
+      "isKidFriendly": true,
+      "violenceLevel": 0.0
+    },
+    {
+      "id": "beat.3_lion_traps_mouse_under_paw",
+      "title": "Trapped Under the Great Paw",
+      "textTemplate": "Quick as lightning, {lion_name} brought his giant velvet paw down, gently trapping {mouse_name} beneath his claws. 'Who dares disturb the afternoon slumber of the King?' growled {lion_name}, looking down with a stern, imposing frown.",
+      "preconditions": [
+        { "variable": "mouse_wakes_lion", "op": "==", "expectedValue": true }
+      ],
+      "effects": [
+        { "variable": "lion_captures_mouse", "op": "SET", "value": true }
+      ],
+      "isKidFriendly": true,
+      "violenceLevel": 0.0
+    },
+    {
+      "id": "beat.4_mouse_pleads_mercy",
+      "title": "A Small Mouse's Promise",
+      "textTemplate": "'O mighty {lion_name}!' squeaked {mouse_name}, trembling but polite. 'Forgive my clumsy tumble! I meant no disrespect. If you show kindness and let me scurry home, I promise that one day, should you ever need it, I will return the favor!' {lion_name} chuckled warmly at the thought of a tiny mouse rescuing the King of Beasts, but his heart was touched by the mouse's earnest courage.",
+      "preconditions": [
+        { "variable": "lion_captures_mouse", "op": "==", "expectedValue": true }
+      ],
+      "effects": [
+        { "variable": "mouse_pleads_kindness", "op": "SET", "value": true }
+      ],
+      "isKidFriendly": true,
+      "violenceLevel": 0.0
+    },
+    {
+      "id": "beat.5_lion_lifts_paw_spares_mouse",
+      "title": "The Gift of Mercy",
+      "textTemplate": "{lion_name} lifted his paw with a kind grin. 'Run along, little {mouse_name}. May your travels through the {savannah_name} be safe.' Overjoyed, {mouse_name} bowed respectfully and scurried safely into the sheltering roots.",
+      "preconditions": [
+        { "variable": "mouse_pleads_kindness", "op": "==", "expectedValue": true }
+      ],
+      "effects": [
+        { "variable": "lion_spares_mouse", "op": "SET", "value": true }
+      ],
+      "isKidFriendly": true,
+      "violenceLevel": 0.0
+    },
+    {
+      "id": "beat.5_alt_lion_attacks_cruel",
+      "title": "A Cruel Reaction",
+      "textTemplate": "{lion_name} roared angrily and struck down with malice.",
+      "preconditions": [
+        { "variable": "mouse_pleads_kindness", "op": "==", "expectedValue": true }
+      ],
+      "effects": [
+        { "variable": "violence_occurred", "op": "SET", "value": true },
+        { "variable": "kid_friendly", "op": "SET", "value": false }
+      ],
+      "isKidFriendly": false,
+      "violenceLevel": 1.0
+    },
+    {
+      "id": "beat.6_hunters_rope_trap",
+      "title": "The Trapper's Net",
+      "textTemplate": "A few weeks later, hunters from distant lands set a heavy rope net along the river path. While patrolling his territory at dusk, {lion_name} stepped into the concealed snare. The heavy hemp ropes snapped shut, hauling the mighty lion tight against a baobab trunk! Despite pulling with all his strength, the knots held fast.",
+      "preconditions": [
+        { "variable": "lion_spares_mouse", "op": "==", "expectedValue": true }
+      ],
+      "effects": [
+        { "variable": "hunters_trap_lion", "op": "SET", "value": true }
+      ],
+      "isKidFriendly": true,
+      "violenceLevel": 0.0
+    },
+    {
+      "id": "beat.7_mouse_hears_distressed_roar",
+      "title": "A Familiar Roar in the Wind",
+      "textTemplate": "Far across the grasslands, {mouse_name} heard a booming call of distress. He recognized the noble voice of {lion_name} echoing through the night. Remembering the kindness granted to him, the brave little mouse dashed across the plains without a single hesitation.",
+      "preconditions": [
+        { "variable": "hunters_trap_lion", "op": "==", "expectedValue": true }
+      ],
+      "effects": [
+        { "variable": "mouse_hears_roars", "op": "SET", "value": true }
+      ],
+      "isKidFriendly": true,
+      "violenceLevel": 0.0
+    },
+    {
+      "id": "beat.8_mouse_gnaws_thick_ropes",
+      "title": "Sharp Teeth Against Heavy Hemp",
+      "textTemplate": "Reaching the baobab tree, {mouse_name} called out: 'Do not despair, {lion_name}! I am here to repay my debt!' With sharp, determined teeth, {mouse_name} began gnawing feverishly at the thickest binding cord. Fiber by fiber, strand by strand, the tough rope gave way under his relentless nibbling.",
+      "preconditions": [
+        { "variable": "mouse_hears_roars", "op": "==", "expectedValue": true }
+      ],
+      "effects": [
+        { "variable": "mouse_chews_ropes", "op": "SET", "value": true }
+      ],
+      "isKidFriendly": true,
+      "violenceLevel": 0.0
+    },
+    {
+      "id": "beat.9_lion_breaks_free",
+      "title": "Freedom and Humility",
+      "textTemplate": "With a final snap, the main anchor knot unraveled! {lion_name} pushed through the slackened mesh and bounded free into the cool moonlight. He looked down at the panting, proud little mouse and lowered his mighty head in sincere gratitude. 'Forgive me, {mouse_name}. I laughed when you promised to help me, but tonight you saved my life.'",
+      "preconditions": [
+        { "variable": "mouse_chews_ropes", "op": "==", "expectedValue": true }
+      ],
+      "effects": [
+        { "variable": "lion_freed", "op": "SET", "value": true }
+      ],
+      "isKidFriendly": true,
+      "violenceLevel": 0.0
+    },
+    {
+      "id": "beat.10_moral_and_conclusion",
+      "title": "Moral Synthesis: No Act of Kindness is Wasted",
+      "textTemplate": "From that evening forward, {lion_name} and {mouse_name} walked the savannah as lifelong friends, proving to all creatures that strength is not measured by size alone.\n\nMORAL OF THE STORY:\n'No act of kindness, no matter how small, is ever wasted.'\nEven the humble and small can accomplish great deeds, and true royalty is shown through mercy.",
+      "preconditions": [
+        { "variable": "lion_freed", "op": "==", "expectedValue": true }
+      ],
+      "effects": [
+        { "variable": "moral_learned", "op": "SET", "value": true },
+        { "variable": "story_completed", "op": "SET", "value": true }
+      ],
+      "isKidFriendly": true,
+      "violenceLevel": 0.0
+    }
+  ]
+}

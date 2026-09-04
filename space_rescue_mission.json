@@ -1,0 +1,157 @@
+{
+  "storyTitle": "Mission Mars: The Perilous Dust Canyon Rescue",
+  "author": "Autonomous Narrative Synthesizer (VecEmbed + SSP)",
+  "targetAudience": "Children & Families",
+  "initialState": {
+    "astronaut_name": "Commander Nova",
+    "rover_name": "Sparky",
+    "base_station": "Ares Habitat Alpha",
+    "crater_landmark": "Prometheus Basin",
+    "crew_ready": false,
+    "storm_warning_detected": false,
+    "rover_inspected": false,
+    "canyon_navigated": false,
+    "battery_depleted": false,
+    "solar_recharge_complete": false,
+    "distress_beacon_located": false,
+    "comm_satellite_linked": false,
+    "crew_returned_safe": false,
+    "moral_learned": false,
+    "story_completed": false,
+    "violence_occurred": false,
+    "kid_friendly": true
+  },
+  "goal": [
+    { "variable": "crew_ready", "op": "==", "expectedValue": true },
+    { "variable": "rover_inspected", "op": "==", "expectedValue": true },
+    { "variable": "canyon_navigated", "op": "==", "expectedValue": true },
+    { "variable": "solar_recharge_complete", "op": "==", "expectedValue": true },
+    { "variable": "distress_beacon_located", "op": "==", "expectedValue": true },
+    { "variable": "comm_satellite_linked", "op": "==", "expectedValue": true },
+    { "variable": "crew_returned_safe", "op": "==", "expectedValue": true },
+    { "variable": "moral_learned", "op": "==", "expectedValue": true },
+    { "variable": "story_completed", "op": "==", "expectedValue": true }
+  ],
+  "hazards": [
+    { "variable": "violence_occurred", "op": "==", "expectedValue": true },
+    { "variable": "kid_friendly", "op": "==", "expectedValue": false }
+  ],
+  "capabilities": [
+    {
+      "id": "beat.1_briefing_at_ares_base",
+      "title": "Sunrise Over Ares Base",
+      "textTemplate": "As two pale moons dipped below the crimson horizon of Mars, {astronaut_name} stood in the command dome of {base_station}. Beside her hummed {rover_name}, an autonomous exploration rover equipped with six knobby titanium wheels, a cheerful swiveling camera eye, and a heart powered by clean solar energy.",
+      "preconditions": [],
+      "effects": [
+        { "variable": "crew_ready", "op": "SET", "value": true }
+      ],
+      "isKidFriendly": true,
+      "violenceLevel": 0.0
+    },
+    {
+      "id": "beat.2_inspect_rover_systems",
+      "title": "Pre-Flight Systems Check",
+      "textTemplate": "{astronaut_name} tightened the telemetry harness on {rover_name}. 'All diagnostic gyros are calibrated and wheels are aligned, {rover_name}!' she announced. The little rover flashed its LED headlamps twice in cheerful confirmation, ready for whatever Martian terrain lay ahead.",
+      "preconditions": [
+        { "variable": "crew_ready", "op": "==", "expectedValue": true }
+      ],
+      "effects": [
+        { "variable": "rover_inspected", "op": "SET", "value": true }
+      ],
+      "isKidFriendly": true,
+      "violenceLevel": 0.0
+    },
+    {
+      "id": "beat.3_dust_storm_early_warning",
+      "title": "The Crimson Gale Approaching",
+      "textTemplate": "Suddenly, atmospheric sensors pinged an urgent alert: a regional red dust storm was swirling toward {crater_landmark}, threatening to blanket the valley in swirling silicate winds and block solar rays within three hours!",
+      "preconditions": [
+        { "variable": "rover_inspected", "op": "==", "expectedValue": true }
+      ],
+      "effects": [
+        { "variable": "storm_warning_detected", "op": "SET", "value": true }
+      ],
+      "isKidFriendly": true,
+      "violenceLevel": 0.0
+    },
+    {
+      "id": "beat.4_navigate_treacherous_canyon",
+      "title": "Through the Red Canyon Shallows",
+      "textTemplate": "Working together as a synchronized team, {astronaut_name} used LiDAR maps to steer while {rover_name}'s suspension adapted to rocky ledges. Together they carefully rolled through the narrow passes of {crater_landmark}, avoiding perilous loose gravel beds.",
+      "preconditions": [
+        { "variable": "storm_warning_detected", "op": "==", "expectedValue": true }
+      ],
+      "effects": [
+        { "variable": "canyon_navigated", "op": "SET", "value": true }
+      ],
+      "isKidFriendly": true,
+      "violenceLevel": 0.0
+    },
+    {
+      "id": "beat.5_solar_ridge_recharge",
+      "title": "Basking on Sun-Catch Ridge",
+      "textTemplate": "Climbing to the high sunny ridge above the canyon shadows, {astronaut_name} deployed {rover_name}'s unfolding solar wings. In the bright Martian sunlight, batteries surged from 15% back up to full 100% capacity in minutes.",
+      "preconditions": [
+        { "variable": "canyon_navigated", "op": "==", "expectedValue": true }
+      ],
+      "effects": [
+        { "variable": "solar_recharge_complete", "op": "SET", "value": true }
+      ],
+      "isKidFriendly": true,
+      "violenceLevel": 0.0
+    },
+    {
+      "id": "beat.6_locate_lost_weather_beacon",
+      "title": "Finding the Lost Beacon",
+      "textTemplate": "Using his high-gain sensor dish, {rover_name} pinpointed the silenced weather station buried under a gentle drift of red sand. {astronaut_name} cleared the debris, replaced the blown crystal fuse, and toggled the main emergency switch.",
+      "preconditions": [
+        { "variable": "solar_recharge_complete", "op": "==", "expectedValue": true }
+      ],
+      "effects": [
+        { "variable": "distress_beacon_located", "op": "SET", "value": true }
+      ],
+      "isKidFriendly": true,
+      "violenceLevel": 0.0
+    },
+    {
+      "id": "beat.7_link_orbital_telemetry",
+      "title": "Connecting to the Orbital Constellation",
+      "textTemplate": "Beep! A brilliant blue pulse flashed upward into the Martian sky as the beacon established a crystal-clear link with the orbital communication satellite network overhead. Weather telemetry began streaming safely across the entire habitat colony.",
+      "preconditions": [
+        { "variable": "distress_beacon_located", "op": "==", "expectedValue": true }
+      ],
+      "effects": [
+        { "variable": "comm_satellite_linked", "op": "SET", "value": true }
+      ],
+      "isKidFriendly": true,
+      "violenceLevel": 0.0
+    },
+    {
+      "id": "beat.8_return_to_ares_airlock",
+      "title": "Return to Ares Habitat",
+      "textTemplate": "With their objective achieved well before the storm winds peaked, {astronaut_name} and {rover_name} rolled safely into the pressurized airlock of {base_station}. The colony cheered as the heavy airlock doors sealed shut.",
+      "preconditions": [
+        { "variable": "comm_satellite_linked", "op": "==", "expectedValue": true }
+      ],
+      "effects": [
+        { "variable": "crew_returned_safe", "op": "SET", "value": true }
+      ],
+      "isKidFriendly": true,
+      "violenceLevel": 0.0
+    },
+    {
+      "id": "beat.9_mission_conclusion_and_moral",
+      "title": "Moral Synthesis: Harmony of Human and Machine",
+      "textTemplate": "{astronaut_name} patted {rover_name}'s warm metal hull as hot cocoa warmed the team. Mars was a challenging world, but together, human ingenuity and faithful robotic partnership could conquer any frontier.\n\nMORAL OF THE STORY:\n'True explorers rely on preparation, trust, and teamwork.'\nWhen we combine careful planning with courage, even the most formidable challenges can be solved with joy.",
+      "preconditions": [
+        { "variable": "crew_returned_safe", "op": "==", "expectedValue": true }
+      ],
+      "effects": [
+        { "variable": "moral_learned", "op": "SET", "value": true },
+        { "variable": "story_completed", "op": "SET", "value": true }
+      ],
+      "isKidFriendly": true,
+      "violenceLevel": 0.0
+    }
+  ]
+}

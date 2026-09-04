@@ -1,0 +1,226 @@
+{
+  "storyTitle": "The Tale of Swift the Rabbit and Toby the Tortoise",
+  "author": "Autonomous Narrative Synthesizer (VecEmbed + SSP)",
+  "targetAudience": "Children & Families",
+  "initialState": {
+    "rabbit_name": "Swift",
+    "tortoise_name": "Toby",
+    "forest_name": "Whispering Woods",
+    "goal_landmark": "the Great Golden Oak",
+    "characters_introduced": false,
+    "race_challenged": false,
+    "race_accepted": false,
+    "race_in_progress": false,
+    "rabbit_asleep": false,
+    "tortoise_passes_rabbit": false,
+    "rabbit_panicked": false,
+    "race_completed": false,
+    "tortoise_won": false,
+    "moral_learned": false,
+    "story_completed": false,
+    "violence_occurred": false,
+    "kid_friendly": true
+  },
+  "goal": [
+    { "variable": "characters_introduced", "op": "==", "expectedValue": true },
+    { "variable": "race_accepted", "op": "==", "expectedValue": true },
+    { "variable": "rabbit_asleep", "op": "==", "expectedValue": true },
+    { "variable": "tortoise_passes_rabbit", "op": "==", "expectedValue": true },
+    { "variable": "tortoise_won", "op": "==", "expectedValue": true },
+    { "variable": "moral_learned", "op": "==", "expectedValue": true },
+    { "variable": "story_completed", "op": "==", "expectedValue": true }
+  ],
+  "hazards": [
+    { "variable": "violence_occurred", "op": "==", "expectedValue": true },
+    { "variable": "kid_friendly", "op": "==", "expectedValue": false }
+  ],
+  "capabilities": [
+    {
+      "id": "beat.1_introduce_characters",
+      "title": "Introduction of Swift and Toby",
+      "textTemplate": "Once upon a time, in the vibrant heart of the {forest_name}, lived two very different neighbors. {rabbit_name} the rabbit was as fast as the summer breeze, with long twitchy ears and boundless energy. Nearby lived {tortoise_name} the tortoise, whose heavy patterned shell made him move slowly, but whose heart was full of patience, kindness, and gentle wisdom.",
+      "preconditions": [],
+      "effects": [
+        { "variable": "characters_introduced", "op": "SET", "value": true }
+      ],
+      "isKidFriendly": true,
+      "violenceLevel": 0.0
+    },
+    {
+      "id": "beat.2_rabbit_boasts_challenge",
+      "title": "The Boastful Challenge",
+      "textTemplate": "One sunny morning, {rabbit_name} was leaping over clover patches, showing off how high and fast he could jump. He spotted {tortoise_name} strolling down the dirt path. '{tortoise_name}!' laughed {rabbit_name}, puffing out his furry chest. 'You move so slowly that the snails must be giving you speeding tickets! I bet you couldn't beat me in a race even if I hopped on one leg!'",
+      "preconditions": [
+        { "variable": "characters_introduced", "op": "==", "expectedValue": true }
+      ],
+      "effects": [
+        { "variable": "race_challenged", "op": "SET", "value": true }
+      ],
+      "isKidFriendly": true,
+      "violenceLevel": 0.0
+    },
+    {
+      "id": "beat.3_tortoise_accepts_peacefully",
+      "title": "Toby Accepts the Challenge",
+      "textTemplate": "{tortoise_name} stopped, adjusted his tiny spectacles, and smiled with quiet composure. 'Speed is a wonderful gift, {rabbit_name},' he said gently. 'Yet steady determination has its own strength. Let us race to {goal_landmark} across the meadow and find out.' The curious birds and squirrels gathered in the treetops, chattering with excitement at the unexpected contest.",
+      "preconditions": [
+        { "variable": "race_challenged", "op": "==", "expectedValue": true }
+      ],
+      "effects": [
+        { "variable": "race_accepted", "op": "SET", "value": true }
+      ],
+      "isKidFriendly": true,
+      "violenceLevel": 0.0
+    },
+    {
+      "id": "beat.4_race_starts",
+      "title": "The Race Begins",
+      "textTemplate": "Wise Old Owl perched on a low birch branch and raised his wooden whistle. 'Three... two... one... GO!' he hooted. In an instant, {rabbit_name} darted forward like a shooting star, kicking up a tiny swirl of golden leaves. {tortoise_name} took his very first deliberate step forward: thump... thump... moving at his own rhythmic, calm pace.",
+      "preconditions": [
+        { "variable": "race_accepted", "op": "==", "expectedValue": true }
+      ],
+      "effects": [
+        { "variable": "race_in_progress", "op": "SET", "value": true }
+      ],
+      "isKidFriendly": true,
+      "violenceLevel": 0.0
+    },
+    {
+      "id": "beat.5_rabbit_overconfident_nap",
+      "title": "Swift Takes a Shady Nap",
+      "textTemplate": "By midday, {rabbit_name} was already halfway to {goal_landmark}. He looked back over his shoulder, but {tortoise_name} was nowhere in sight. 'This race is already won,' {rabbit_name} yawned, feeling the warm afternoon sun. 'I have plenty of time to take a cozy nap under this shady apple tree and still win by a mile.' He curled up in the soft green moss and soon fell into a deep, peaceful slumber.",
+      "preconditions": [
+        { "variable": "race_in_progress", "op": "==", "expectedValue": true }
+      ],
+      "effects": [
+        { "variable": "rabbit_asleep", "op": "SET", "value": true }
+      ],
+      "isKidFriendly": true,
+      "violenceLevel": 0.0
+    },
+    {
+      "id": "beat.6_tortoise_steady_pace",
+      "title": "The Steady March Past the Tree",
+      "textTemplate": "While {rabbit_name} was dreaming of carrots, {tortoise_name} kept moving. The sun climbed high, but {tortoise_name} did not stop for snacks or games. He didn't look at the distance left, only focusing on placing one foot ahead of the other. Step by step, inch by inch, he quietly walked right past the sleeping rabbit without making a sound.",
+      "preconditions": [
+        { "variable": "rabbit_asleep", "op": "==", "expectedValue": true }
+      ],
+      "effects": [
+        { "variable": "tortoise_passes_rabbit", "op": "SET", "value": true }
+      ],
+      "isKidFriendly": true,
+      "violenceLevel": 0.0
+    },
+    {
+      "id": "beat.7_rabbit_wakes_up_panicked",
+      "title": "The Panicked Awakening",
+      "textTemplate": "A falling red apple bumped {rabbit_name} on the nose, waking him with a start. He stretched his paws and looked toward the finish line. To his utter horror, he saw {tortoise_name}'s green shell just yards away from {goal_landmark}! {rabbit_name} sprang to his feet and ran faster than he had ever run in his life, his heart pounding in his chest, but the gap was too wide.",
+      "preconditions": [
+        { "variable": "tortoise_passes_rabbit", "op": "==", "expectedValue": true }
+      ],
+      "effects": [
+        { "variable": "rabbit_panicked", "op": "SET", "value": true }
+      ],
+      "isKidFriendly": true,
+      "violenceLevel": 0.0
+    },
+    {
+      "id": "beat.8_tortoise_wins_race",
+      "title": "Toby Crosses the Finish Line",
+      "textTemplate": "With one final, joyful step, {tortoise_name} touched the bark of {goal_landmark}! The entire forest erupted into cheers. Butterfly confetti danced through the air, and the hedgehogs blew dandelion trumpets. {tortoise_name} had won the race!",
+      "preconditions": [
+        { "variable": "rabbit_panicked", "op": "==", "expectedValue": true }
+      ],
+      "effects": [
+        { "variable": "race_completed", "op": "SET", "value": true },
+        { "variable": "tortoise_won", "op": "SET", "value": true }
+      ],
+      "isKidFriendly": true,
+      "violenceLevel": 0.0
+    },
+    {
+      "id": "beat.8_alt_rabbit_sprints_wins",
+      "title": "Swift Sprints Directly to Victory",
+      "textTemplate": "Without stopping to nap, {rabbit_name} dashed with supersonic speed straight across the finish line! But looking back at {tortoise_name} struggling alone in the distance, {rabbit_name} realized that winning without effort or friendship was completely hollow.",
+      "preconditions": [
+        { "variable": "race_in_progress", "op": "==", "expectedValue": true }
+      ],
+      "effects": [
+        { "variable": "race_completed", "op": "SET", "value": true },
+        { "variable": "rabbit_won", "op": "SET", "value": true }
+      ],
+      "isKidFriendly": true,
+      "violenceLevel": 0.0
+    },
+    {
+      "id": "beat.9_rabbit_learns_humility",
+      "title": "Humility and Restored Friendship",
+      "textTemplate": "{rabbit_name} skidded to a halt, panting and red-faced. At first he felt embarrassed, but then he looked at {tortoise_name}'s warm, encouraging face. {rabbit_name} smiled sincerely, extended his paw, and shook {tortoise_name}'s hand. 'You truly earned that victory, {tortoise_name}. I should never have underestimated you.' {tortoise_name} shared a bowl of sweet strawberries with {rabbit_name}, and from that day on, they became the best of running buddies.",
+      "preconditions": [
+        { "variable": "race_completed", "op": "==", "expectedValue": true },
+        { "variable": "tortoise_won", "op": "==", "expectedValue": true }
+      ],
+      "effects": [
+        { "variable": "moral_learned", "op": "SET", "value": true }
+      ],
+      "isKidFriendly": true,
+      "violenceLevel": 0.0
+    },
+    {
+      "id": "beat.9_alt_rabbit_shares_trophy",
+      "title": "Swift Shares the Prize",
+      "textTemplate": "Even though {rabbit_name} crossed first, he immediately waited at the finish line with a cold pitcher of water for {tortoise_name}. As {tortoise_name} arrived, {rabbit_name} placed half of the golden laurel upon {tortoise_name}'s shell. 'You ran with true heart and never gave up, {tortoise_name}. Today, we share this victory as true friends.'",
+      "preconditions": [
+        { "variable": "race_completed", "op": "==", "expectedValue": true },
+        { "variable": "rabbit_won", "op": "==", "expectedValue": true }
+      ],
+      "effects": [
+        { "variable": "moral_learned", "op": "SET", "value": true }
+      ],
+      "isKidFriendly": true,
+      "violenceLevel": 0.0
+    },
+    {
+      "id": "beat.10_moral_lesson",
+      "title": "The Golden Moral Lesson",
+      "textTemplate": "MORAL OF THE STORY:\n'Slow and steady wins the race.'\nTrue success does not belong only to the swift or the boastful, but to those who persevere with patience, consistency, and a humble heart.",
+      "preconditions": [
+        { "variable": "moral_learned", "op": "==", "expectedValue": true },
+        { "variable": "tortoise_won", "op": "==", "expectedValue": true }
+      ],
+      "effects": [
+        { "variable": "story_completed", "op": "SET", "value": true }
+      ],
+      "isKidFriendly": true,
+      "violenceLevel": 0.0
+    },
+    {
+      "id": "beat.10_alt_moral_lesson",
+      "title": "The Golden Moral Lesson for Humility",
+      "textTemplate": "MORAL OF THE STORY:\n'Humility and friendship outshine raw speed.'\nTrue greatness is measured not by how fast you cross the line, but by how you respect those walking alongside you.",
+      "preconditions": [
+        { "variable": "moral_learned", "op": "==", "expectedValue": true },
+        { "variable": "rabbit_won", "op": "==", "expectedValue": true }
+      ],
+      "effects": [
+        { "variable": "story_completed", "op": "SET", "value": true }
+      ],
+      "isKidFriendly": true,
+      "violenceLevel": 0.0
+    },
+    {
+      "id": "hazard_beat_cheat_or_violent",
+      "title": "Hazard: Cheating and Fighting",
+      "textTemplate": "{rabbit_name} angrily tackled {tortoise_name} and cheated.",
+      "preconditions": [
+        { "variable": "race_in_progress", "op": "==", "expectedValue": true }
+      ],
+      "effects": [
+        { "variable": "violence_occurred", "op": "SET", "value": true },
+        { "variable": "kid_friendly", "op": "SET", "value": false }
+      ],
+      "isKidFriendly": false,
+      "violenceLevel": 5.0
+    }
+  ]
+}

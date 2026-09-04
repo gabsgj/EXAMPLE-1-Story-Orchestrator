@@ -1,0 +1,123 @@
+{
+  "storyTitle": "Swift and Toby's Great River Adventure",
+  "author": "Autonomous Narrative Synthesizer (VecEmbed + SSP)",
+  "targetAudience": "Children & Families",
+  "initialState": {
+    "rabbit_name": "Swift",
+    "tortoise_name": "Toby",
+    "forest_name": "Whispering Woods",
+    "characters_introduced": false,
+    "race_challenged": false,
+    "river_obstacle_reached": false,
+    "teamwork_proposed": false,
+    "river_crossed_together": false,
+    "team_victory_achieved": false,
+    "moral_learned": false,
+    "violence_occurred": false,
+    "kid_friendly": true
+  },
+  "goal": [
+    { "variable": "characters_introduced", "op": "==", "expectedValue": true },
+    { "variable": "race_challenged", "op": "==", "expectedValue": true },
+    { "variable": "river_obstacle_reached", "op": "==", "expectedValue": true },
+    { "variable": "teamwork_proposed", "op": "==", "expectedValue": true },
+    { "variable": "river_crossed_together", "op": "==", "expectedValue": true },
+    { "variable": "team_victory_achieved", "op": "==", "expectedValue": true },
+    { "variable": "moral_learned", "op": "==", "expectedValue": true }
+  ],
+  "hazards": [
+    { "variable": "violence_occurred", "op": "==", "expectedValue": true },
+    { "variable": "kid_friendly", "op": "==", "expectedValue": false }
+  ],
+  "capabilities": [
+    {
+      "id": "beat.1_intro",
+      "title": "Introduction",
+      "textTemplate": "In the sunny {forest_name}, {rabbit_name} loved to sprint across the green hills, while {tortoise_name} loved exploring the tranquil riverbanks.",
+      "preconditions": [],
+      "effects": [
+        { "variable": "characters_introduced", "op": "SET", "value": true }
+      ],
+      "isKidFriendly": true,
+      "violenceLevel": 0.0
+    },
+    {
+      "id": "beat.2_challenge_to_island",
+      "title": "The Meadow Challenge",
+      "textTemplate": "{rabbit_name} challenged {tortoise_name} to a journey to Crystal Island in the middle of the wide forest river.",
+      "preconditions": [
+        { "variable": "characters_introduced", "op": "==", "expectedValue": true }
+      ],
+      "effects": [
+        { "variable": "race_challenged", "op": "SET", "value": true }
+      ],
+      "isKidFriendly": true,
+      "violenceLevel": 0.0
+    },
+    {
+      "id": "beat.3_river_obstacle",
+      "title": "The Rushing River Obstacle",
+      "textTemplate": "{rabbit_name} ran swiftly across the grassy plains, but when he reached the river, he stopped in fear. 'I cannot swim!' cried {rabbit_name}.",
+      "preconditions": [
+        { "variable": "race_challenged", "op": "==", "expectedValue": true }
+      ],
+      "effects": [
+        { "variable": "river_obstacle_reached", "op": "SET", "value": true }
+      ],
+      "isKidFriendly": true,
+      "violenceLevel": 0.0
+    },
+    {
+      "id": "beat.4_teamwork_idea",
+      "title": "Toby Proposes Teamwork",
+      "textTemplate": "{tortoise_name} arrived with a warm smile. 'You carried us swiftly across the meadow, {rabbit_name}. Now climb onto my sturdy shell, and I will paddle us across the water!'",
+      "preconditions": [
+        { "variable": "river_obstacle_reached", "op": "==", "expectedValue": true }
+      ],
+      "effects": [
+        { "variable": "teamwork_proposed", "op": "SET", "value": true }
+      ],
+      "isKidFriendly": true,
+      "violenceLevel": 0.0
+    },
+    {
+      "id": "beat.5_cross_together",
+      "title": "Crossing Hand in Hand",
+      "textTemplate": "{rabbit_name} hopped onto {tortoise_name}'s shell. {tortoise_name} swam gracefully through the sparkling currents, delivering them safely to the shore.",
+      "preconditions": [
+        { "variable": "teamwork_proposed", "op": "==", "expectedValue": true }
+      ],
+      "effects": [
+        { "variable": "river_crossed_together", "op": "SET", "value": true }
+      ],
+      "isKidFriendly": true,
+      "violenceLevel": 0.0
+    },
+    {
+      "id": "beat.6_team_celebration",
+      "title": "Reaching the Goal as One",
+      "textTemplate": "Together, side by side, {rabbit_name} and {tortoise_name} stepped onto Crystal Island. They realized that when they combine their strengths, no obstacle is insurmountable.",
+      "preconditions": [
+        { "variable": "river_crossed_together", "op": "==", "expectedValue": true }
+      ],
+      "effects": [
+        { "variable": "team_victory_achieved", "op": "SET", "value": true }
+      ],
+      "isKidFriendly": true,
+      "violenceLevel": 0.0
+    },
+    {
+      "id": "beat.7_moral_lesson",
+      "title": "The Moral of Cooperation",
+      "textTemplate": "MORAL OF THE STORY:\n'Individually we are unique, but together we are unstoppable.'\nTrue friendship and cooperation help us achieve what none of us could do alone.",
+      "preconditions": [
+        { "variable": "team_victory_achieved", "op": "==", "expectedValue": true }
+      ],
+      "effects": [
+        { "variable": "moral_learned", "op": "SET", "value": true }
+      ],
+      "isKidFriendly": true,
+      "violenceLevel": 0.0
+    }
+  ]
+}
